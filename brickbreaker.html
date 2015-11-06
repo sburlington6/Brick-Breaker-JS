@@ -10,6 +10,8 @@
 <canvas id="myCanvas" width="600" height="500"></canvas>
 
 <script>
+
+	//canvas settings
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var ballRadius = 10;
@@ -18,13 +20,25 @@
     var dx = 2;
     var dy = -2;
 	
+	//theme settings
+    var background = "#A9F5E1";
+    var paddleColor = "#A4A4A4";
+    var ballColor = "#0095DD";
+    var brickColor = "#0095DD";
+    var livesColor = "#0095DD";
+    var scoreColor = "#0095DD";
+    var font = "16px Arial";
+	
+	//paddle settings
     var paddleHeight = 10;
     var paddleWidth = 75;
     var paddleX = (canvas.width-paddleWidth)/2;
 	
+	//key settings
     var rightPressed = false;
     var leftPressed = false;
 	
+	//brick settings
     var brickPadding = 10;
     var brickRowCount = 5;
     var brickColumnCount = 3;
@@ -33,6 +47,7 @@
     var brickOffsetTop = 30;
     var brickOffsetLeft = 30;
 	
+	//score and lives settigns
     var score = 0;
     var lives = 3;
 
@@ -92,14 +107,14 @@
     function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = ballColor;
         ctx.fill();
         ctx.closePath();
     }
     function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = paddleColor;
         ctx.fill();
         ctx.closePath();
     }
@@ -113,7 +128,7 @@
                     bricks[c][r].y = brickY;
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "#0095DD";
+                    ctx.fillStyle = brickColor;
                     ctx.fill();
                     ctx.closePath();
                 }
@@ -121,18 +136,19 @@
         }
     }
     function drawScore() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
+        ctx.font = font;
+        ctx.fillStyle = scoreColor;
         ctx.fillText("Score: "+score, 8, 20);
     }
     function drawLives() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
+        ctx.font = font;
+        ctx.fillStyle = livesColor;
         ctx.fillText("Lives: "+lives, canvas.width-65, 20);
     }
 
     function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle= background;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         drawBricks();
         drawBall();
         drawPaddle();
