@@ -17,18 +17,22 @@
     var y = canvas.height-30;
     var dx = 2;
     var dy = -2;
+	
     var paddleHeight = 10;
     var paddleWidth = 75;
     var paddleX = (canvas.width-paddleWidth)/2;
+	
     var rightPressed = false;
     var leftPressed = false;
+	
+    var brickPadding = 10;
     var brickRowCount = 5;
     var brickColumnCount = 3;
-    var brickWidth = 75;
+    var brickWidth = (canvas.width-(brickRowCount*brickPadding*2))/brickRowCount;
     var brickHeight = 20;
-    var brickPadding = 10;
     var brickOffsetTop = 30;
     var brickOffsetLeft = 30;
+	
     var score = 0;
     var lives = 3;
 
