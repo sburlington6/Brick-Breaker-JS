@@ -17,14 +17,18 @@
     var ballRadius = 10;
     var x = canvas.width/2;
     var y = canvas.height-30;
-    var dx = 2;
-    var dy = -2;
+	
+	//ball speed
+	var speed = 5;
+    var dx = speed;
+    var dy = -speed;
 	
 	//theme settings
     var background = "#A9F5E1";
     var paddleColor = "#A4A4A4";
     var ballColor = "#0095DD";
-    var brickColor = "#0095DD";
+    //var brickColor = "#0095DD";
+    var brickColor = '#'+Math.floor(Math.random()*16777215).toString(16);
     var livesColor = "#0095DD";
     var scoreColor = "#0095DD";
     var font = "16px Arial";
@@ -175,8 +179,8 @@
                 else {
                     x = canvas.width/2;
                     y = canvas.height-30;
-                    dx = 3;
-                    dy = -3;
+                    dx = speed;
+                    dy = -speed;
                     paddleX = (canvas.width-paddleWidth)/2;
                 }
             }
