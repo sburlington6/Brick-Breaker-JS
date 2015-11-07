@@ -22,7 +22,7 @@ var font = "16px Arial";
 
 //paddle settings
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 
 //key settings
@@ -32,8 +32,8 @@ var spacePressed = false;
 
 //brick settings
 var brickPadding = 10;
-var brickRowCount = 4;
-var brickColumnCount = 3;
+var brickRowCount = 6;
+var brickColumnCount = 5;
 var brickWidth = (canvas.width-(brickRowCount*brickPadding*2-(brickPadding*2)))/brickRowCount;
 //var brickWidth = 100;
 var brickHeight = 20;
@@ -63,8 +63,11 @@ function keyDownHandler(e) {
 		leftPressed = true;
 	}
 	else if(e.keyCode == 32) {
+		if (!spacePressed)
+		{
+			startGame();
+		}
 		spacePressed = true;
-		startGame();
 	}
 }
 function keyUpHandler(e) {
