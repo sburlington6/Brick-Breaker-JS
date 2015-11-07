@@ -64,6 +64,7 @@ function keyDownHandler(e) {
 	}
 	else if(e.keyCode == 32) {
 		spacePressed = true;
+		startGame();
 	}
 }
 function keyUpHandler(e) {
@@ -74,7 +75,7 @@ function keyUpHandler(e) {
 		leftPressed = false;
 	}
 	else if(e.keyCode == 32) {
-		spacePressed = false;
+		//spacePressed = false;
 	}
 }
 function mouseMoveHandler(e) {
@@ -197,12 +198,11 @@ function draw() {
 	requestAnimationFrame(draw);
 }
 
-
+drawStart();
 
 function startGame()
 {	
-	drawStart();
-	if(spacePressed) 
+	//if(spacePressed) 
 	{	
 		//alert("GAME OVER");
 		draw();
@@ -210,4 +210,3 @@ function startGame()
 	//alert("GAME OVER");
 }
 
-startGame();
