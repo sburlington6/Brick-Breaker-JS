@@ -147,10 +147,43 @@ function drawScore() {
 	ctx.fillStyle = scoreColor;
 	ctx.fillText("Score: "+score, 8, 20);
 }
-function drawLives() {
+function drawLives1() {
 	ctx.font = font;
 	ctx.fillStyle = livesColor;
 	ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+}
+
+function drawLives() {
+	
+	//right ball
+	if (lives >= 1)
+	{
+	ctx.beginPath();
+	ctx.arc(canvas.width-45,10,10,0,2*Math.PI);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	ctx.closePath();
+	}
+	
+	if (lives >= 2)
+	{
+	ctx.beginPath();
+	ctx.arc(canvas.width-65,10,10,0,2*Math.PI);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	ctx.closePath();
+	}
+	
+	if (lives >= 3)
+	{
+	//left ball
+	ctx.beginPath();
+	ctx.arc(canvas.width-85,10,10,0,2*Math.PI);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	ctx.closePath();
+	}
+	
 }
 
 function draw() {
